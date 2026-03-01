@@ -8,7 +8,7 @@ module.exports = defineConfig({
     proxy: {
       // 匹配所有接口路径
       '/': {
-        target: 'https://api.catrecommend.cloud:8443', //服务器
+        target: 'http://139.155.144.90:8080', //服务器
         changeOrigin: true, // 强制开启跨域（核心）
         ws: false, // 关闭WebSocket（无需求时更稳定）
         pathRewrite: {
