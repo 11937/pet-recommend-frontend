@@ -6,9 +6,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueLazyload from 'vue-lazyload'
 import axios from 'axios';
 
-// ========== 核心修改：baseURL 改成 /api ==========
-axios.defaults.baseURL = '/api'; // 不再直接写服务器地址，交给代理转发
-axios.defaults.timeout = 10000; // 延长超时到10秒（服务器请求可能慢一点）
+// ========== 适配netlify ==========
+axios.defaults.baseURL = 'http://139.155.144.90:1010'; 
+axios.defaults.timeout = 10000; 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // ========== 新增：注册 el-loading-spinner 组件，解决警告 ==========
