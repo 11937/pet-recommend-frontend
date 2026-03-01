@@ -1,18 +1,26 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router' // 引入路由实例
-import ElementUI from 'element-ui' // 引入Element UI核心库
-import 'element-ui/lib/theme-chalk/index.css' // 引入Element UI样式
-import VueLazyload from 'vue-lazyload'//引入懒加载
+import router from './router'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import VueLazyload from 'vue-lazyload'
+import axios from 'axios'; // 引入原生axios
+
+// 核心：给原生axios配置全局baseURL（关键！）
+axios.defaults.baseURL = 'https://api.catrecommend.cloud:8443';
+axios.defaults.timeout = 5000; // 全局超时时间
+axios.defaults.headers.post['Content-Type'] = 'application/json'; // 全局POST请求头
+
+// 把原生axios挂载到Vue原型（组件中可通过this.$axios调用）
+Vue.prototype.$axios = axios;
 
 Vue.config.productionTip = false
-Vue.use(ElementUI) // 全局注册Element UI，所有组件可直接使用
+Vue.use(ElementUI)
 Vue.use(VueLazyload, {
-  lazyComponent: true // 启用懒加载组件支持，确保v-lazy指令生效
+  lazyComponent: true
 })
 
-// Vue实例注入路由，完成核心配置
 new Vue({
-  router, // 将路由注入Vue实例
+  router,
   render: h => h(App),
 }).$mount('#app')
