@@ -7,7 +7,7 @@ import VueLazyload from 'vue-lazyload'
 import axios from 'axios'; // 引入原生axios
 
 // 核心：给原生axios配置全局baseURL（关键！）
-axios.defaults.baseURL = 'https://api.catrecommend.cloud:8443';
+axios.defaults.baseURL = 'http://139.155.144.90:8080';
 axios.defaults.timeout = 5000; // 全局超时时间
 axios.defaults.headers.post['Content-Type'] = 'application/json'; // 全局POST请求头
 
