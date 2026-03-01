@@ -4,14 +4,17 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueLazyload from 'vue-lazyload'
-import axios from 'axios'; // 引入原生axios
+import axios from 'axios';
 
-// 核心：给原生axios配置全局baseURL（关键！）
-axios.defaults.baseURL = 'http://139.155.144.90:8080';
-axios.defaults.timeout = 5000; // 全局超时时间
-axios.defaults.headers.post['Content-Type'] = 'application/json'; // 全局POST请求头
+// ========== 核心修改：baseURL 改成 /api ==========
+axios.defaults.baseURL = '/api'; // 不再直接写服务器地址，交给代理转发
+axios.defaults.timeout = 10000; // 延长超时到10秒（服务器请求可能慢一点）
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-// 把原生axios挂载到Vue原型（组件中可通过this.$axios调用）
+// ========== 新增：注册 el-loading-spinner 组件，解决警告 ==========
+import { Loading } from 'element-ui'
+Vue.use(Loading)
+
 Vue.prototype.$axios = axios;
 
 Vue.config.productionTip = false
