@@ -1,6 +1,4 @@
 const { defineConfig } = require('@vue/cli-service')
-// 本地开发时的基础地址（生产环境不生效）
-const baseURL = process.env.VUE_APP_API_URL || 'http://localhost:8080'
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -10,7 +8,7 @@ module.exports = defineConfig({
     proxy: {
       // 匹配所有接口路径
       '/': {
-        target: baseURL, // 动态代理地址（本地/服务器）
+        target: 'http://139.155.144.90:8080', // 动态代理地址（本地/服务器）
         changeOrigin: true, // 强制开启跨域（核心）
         ws: false, // 关闭WebSocket（无需求时更稳定）
         pathRewrite: {
