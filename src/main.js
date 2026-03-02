@@ -7,7 +7,7 @@ import VueLazyload from 'vue-lazyload'
 import axios from 'axios';
 
 // 适配netlify/vercel
-axios.defaults.baseURL = 'https://catrecommend.cloud:1010'; 
+axios.defaults.baseURL = 'https://catrecommend.cloud'; 
 axios.defaults.timeout = 10000; 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
