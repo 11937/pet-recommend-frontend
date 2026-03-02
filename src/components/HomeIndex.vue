@@ -447,10 +447,9 @@ export default {
       // 全量数据为空时直接返回，避免报错
       if (!this.allCatData.length) return;
       // 深拷贝全量数据：防止修改原数组导致数据污染
-      const tempData = [...this.allCatData];
-      // 随机排序：Math.random()-0.5 生成正负随机数，实现数组乱序
-      // slice(0,57)：截取前57条数据，不足57条则展示全部
-      this.catList = tempData.sort(() => Math.random() - 0.5).slice(0, 57);
+
+      const showData = [...this.allCatData].slice(0, -1);
+      this.catList = showData.sort(() => Math.random() - 0.5);
     },
 
     /**
