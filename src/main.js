@@ -7,7 +7,7 @@ import VueLazyload from 'vue-lazyload'
 import axios from 'axios';
 
 // ========== 适配netlify ==========
-axios.defaults.baseURL = 'http://139.155.144.90:1010'; 
+axios.defaults.baseURL = '/api'; 
 axios.defaults.timeout = 10000; 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
