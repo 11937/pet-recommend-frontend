@@ -70,7 +70,7 @@
           <!-- 图片 -->
           <img 
             v-if="cat.imgUrl" 
-            v-lazy="'/cat_image/' + cat.imgUrl" 
+            v-lazy="'/pet-recommend-frontend/cat_image/' + cat.imgUrl" 
             style="width: 100%; height: 350px; margin-top: 5px; border-radius: 4px;" 
             :alt="cat.breedName + '图片'"
             @error="(e) => e.target.src = placeholderImg"  
@@ -103,7 +103,7 @@
             <!-- 左侧：图片区域 -->
             <div class="cat-detail-img-wrap">
               <img 
-                v-lazy="currentCat.imgUrl ? '/cat_image/' + currentCat.imgUrl : placeholderImg" 
+                v-lazy="currentCat.imgUrl ? '/pet-recommend-frontend/cat_image/' + currentCat.imgUrl : placeholderImg" 
                 style="width: 100%; height: auto; border-radius: 4px;" 
                 :alt="currentCat.breedName + '详情图'"
                 @error="(e) => e.target.src = placeholderImg"
@@ -256,7 +256,7 @@
                   </p>
                   <img 
                     v-if="cat.imgUrl" 
-                    v-lazy="'/cat_image/' + cat.imgUrl" 
+                    v-lazy="'/pet-recommend-frontend/cat_image/' + cat.imgUrl" 
                     class="cat-img"
                     :alt="cat.breedName + '图片'"
                     @error="(e) => e.target.src = placeholderImg"  
