@@ -324,7 +324,7 @@ export default {
   async mounted() {
     // 第一步：拉取全量猫咪数据（后端需支持空关键词返回全量）
     await this.fetchAllCatData();
-    // 第二步：初始化随机展示9张猫咪卡片
+    // 第二步：初始化随机展示猫咪卡片
     this.initRandomCats();
       
   },
@@ -384,6 +384,7 @@ export default {
             }
           }
         );
+         console.log('后端完整响应数据：', res); // 关键：打印完整响应，确认是否返回降级数据
         if (res.data.code === 200) {
           this.recommendList = res.data.data || [];
           this.$message.success(res.data.msg || '推荐成功！');
